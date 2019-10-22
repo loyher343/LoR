@@ -4,7 +4,9 @@
         <div class="cardSet">
           <div class="card" v-for="(card, index) in response.data" :key="index">
             <div>
-              <div class="card-image"></div>
+              <div class="card-image">
+                <img :src="'/cards/'+card.cardCode+'.png'" >
+              </div>
               <div >
                 <div>name: {{ card.name }}</div>
                 <div>cardCode: {{ card.cardCode }}</div>
