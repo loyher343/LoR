@@ -4,6 +4,7 @@
         <div class="cardSet">
           <div class="card" v-for="(card, index) in response.data" :key="index">
             <div>
+              <h2>{{ card.name }}</h2>
               <div class="card-image">
                 <img :src="'/cards/'+card.cardCode+'.png'" >
               </div>
@@ -64,7 +65,7 @@ export default {
  .cardSet {
    display: flex;
    flex-wrap: wrap;
-   width: 80%;
+   width: 100%;
  }
  .card {
    margin: auto;
