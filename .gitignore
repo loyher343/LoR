@@ -89,4 +89,6 @@ sw.*
 # Vim swap files
 *.swp
 
-data
+cardData
+.env
+static

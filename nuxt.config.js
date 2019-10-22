@@ -39,14 +39,17 @@ module.exports = {
   */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
+    
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
+   
   ],
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
+   
   },
   /*
   ** Build configuration
@@ -55,7 +58,13 @@ module.exports = {
     /*
     ** You can extend webpack config here
     */
+   
+    loader: 'babel-loader',
+    babel: {
+      plugins: ['@babel/plugin-syntax-jsx']
+    },
     extend (config, ctx) {
     }
+    
   }
 }
