@@ -3,7 +3,7 @@
         <nuxt-link to="/" class="brand">Leauge of Runterra</nuxt-link>
         <nav>
           <nuxt-link to="/">Home</nuxt-link>&nbsp;|
-          <nuxt-link to="/create">Cards</nuxt-link>
+          <nuxt-link to="cardSet">Cards</nuxt-link>
         </nav>
       </div>
     </template>

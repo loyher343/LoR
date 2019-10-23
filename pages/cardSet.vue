@@ -6,7 +6,9 @@
             <div>
               <h2>{{ card.name }}</h2>
               <div class="card-image">
+                <NuxtLink :key="$route.params.cardCode" :to="'/cardSet/'+card.cardCode">
                 <img :src="'/cards/'+card.cardCode+'.png'" >
+                </NuxtLink> 
               </div>
               <div >
                 <div>name: {{ card.name }}</div>
@@ -30,7 +32,11 @@
 import axios from 'axios'
 const cardData = `https://pokeapi.co/api/v2/pokemon/ditto/`
 export default {
-
+  data() {console.log("!!!!!!!!!",this)
+    return{
+      cards: { }
+    }
+  },
 
 
   // async asyncData({}) {
