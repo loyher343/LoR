@@ -5,6 +5,7 @@
         "loyher",
         "nuxt",
         "nuxtjs",
-        "runetarra"
+        "runetarra",
+        "vuex"
     ]
 }

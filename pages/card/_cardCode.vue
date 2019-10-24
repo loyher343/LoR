@@ -2,7 +2,7 @@
     <div class="card-container">
         
         Card goes Here
-        {{card}}
+        {{$store.state}}
 
     </div>
 </template>
@@ -10,6 +10,7 @@
 
 <script>
 export default {
+   
     data() {
         return {
             cardCode: this.$route.params.cardCode

@@ -12,11 +12,6 @@
                 <!-- <NuxtLink :key="$route.params.cardCode" :to="'/cardSet/'+card.cardCode">
                 <img :src="'/cards/'+card.cardCode+'.png'" >
                 </NuxtLink>  -->
-
-
-
-
-
               </div>
               <div >
                 <div>name: {{ card.name }}</div>
@@ -38,9 +33,10 @@
 
 <script>
 import axios from 'axios'
+
 const cardData = `https://pokeapi.co/api/v2/pokemon/ditto/`
 export default {
-  data() {console.log("!!!!!!!!!",this)
+  data() {console.log("!!!!!!!!!",this.$store.state)
     return{
       cards: {},
       card: { },
@@ -48,6 +44,7 @@ export default {
     }
   },
 
+  middleware: 'cardData',
 
   // async asyncData({}) {
   //   console.log('Start!!!!!!!!!!!!!!!!!!!!')
@@ -75,7 +72,7 @@ export default {
   },
   methods: {
     cardClick(cardCode) {
-      console.log(cardCode)
+      console.log(this,'state')
       this.$router.push(`card/${cardCode}`)
     }
   }
