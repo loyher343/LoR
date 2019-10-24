@@ -1,7 +1,7 @@
 <template>
     <div class="card-container">
         
-        yo
+        Card goes Here
         {{card}}
 
     </div>

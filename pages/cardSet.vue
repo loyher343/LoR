@@ -2,13 +2,21 @@
       <div>
         <h1>UwU</h1>
         <div class="cardSet">
-          <div class="card" v-for="(card, index) in response.data" :key="index">
+          <div class="card" v-for="(card, index) in response.data" v-bind:key="card.cardCode">
             <div>
-              <h2>{{ card.name }}</h2>
+              <h2>{{ card.name }}  index: {{ index }}</h2>
               <div class="card-image">
-                <NuxtLink :key="$route.params.cardCode" :to="'/cardSet/'+card.cardCode">
+
+                 <img @click.prevent="cardClick(card.cardCode)"  :src="'/cards/'+card.cardCode+'.png'" >
+                
+                <!-- <NuxtLink :key="$route.params.cardCode" :to="'/cardSet/'+card.cardCode">
                 <img :src="'/cards/'+card.cardCode+'.png'" >
-                </NuxtLink> 
+                </NuxtLink>  -->
+
+
+
+
+
               </div>
               <div >
                 <div>name: {{ card.name }}</div>
@@ -34,7 +42,9 @@ const cardData = `https://pokeapi.co/api/v2/pokemon/ditto/`
 export default {
   data() {console.log("!!!!!!!!!",this)
     return{
-      cards: { }
+      cards: {},
+      card: { },
+      cardCode: '',
     }
   },
 
@@ -56,13 +66,21 @@ export default {
     //console.log('Start!!!!!!!!!!!!!!!!!!!!')
    return axios.get('/set1-en_us.json').then(function(response) {
      console.log(response.data[0],"yyoooooooo")
-     return{response}
+     return {response}
      
    })
    
     //console.log( response )
-    return response
+    return  { cards: response }
+  },
+  methods: {
+    cardClick(cardCode) {
+      console.log(cardCode)
+      this.$router.push(`card/${cardCode}`)
+    }
   }
+
+
  
 }
 </script>
