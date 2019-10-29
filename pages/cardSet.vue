@@ -9,9 +9,6 @@
 
                  <img @click.prevent="cardClick(card.cardCode)"  :src="'/cards/'+card.cardCode+'.png'" >
                 
-                <!-- <NuxtLink :key="$route.params.cardCode" :to="'/cardSet/'+card.cardCode">
-                <img :src="'/cards/'+card.cardCode+'.png'" >
-                </NuxtLink>  -->
               </div>
               <div >
                 <div>name: {{ card.name }}</div>
@@ -47,30 +44,7 @@ export default {
 
   middleware: 'cardData',
 
-  // async asyncData({}) {
-  //   console.log('Start!!!!!!!!!!!!!!!!!!!!')
-  //  return axios.get(`https://pokeapi.co/api/v2/pokemon/ditto/`).then(function(response) {
-  //    console.log(response,"yyoooooooo")
-  //    return{response}
-     
-  //  })
-   
-  //   console.log( response )
-  //   return response
-  // }
 
-
-  // async asyncData({}) {
-  //   //console.log('Start!!!!!!!!!!!!!!!!!!!!')
-  //  return axios.get('/set1-en_us.json').then(function(response) {
-  //    console.log(response.data[0],"yyoooooooo")
-  //    return {response}
-     
-  //  })
-   
-  //   //console.log( response )
-  //   return  { cards: response }
-  // },
   methods: {
     cardClick(cardCode) {
       console.log(this.$store.state,'state')
