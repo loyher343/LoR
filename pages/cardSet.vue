@@ -2,7 +2,7 @@
       <div>
         <h1>UwU</h1>
         <div class="cardSet">
-          <div class="card" v-for="(card, index) in response.data" v-bind:key="card.cardCode">
+          <div class="card" v-for="(card, index) in $store.state.cards" v-bind:key="card.cardCode">
             <div>
               <h2>{{ card.name }}  index: {{ index }}</h2>
               <div class="card-image">
@@ -27,7 +27,7 @@
             </div>
           </div>
         </div>
-        {{ response.data[0].name }}
+        {{ $store.state.cards[0].name }}
       </div>
 </template>
 
@@ -38,6 +38,7 @@ const cardData = `https://pokeapi.co/api/v2/pokemon/ditto/`
 export default {
   data() {console.log("!!!!!!!!!",this.$store.state)
     return{
+      cardCode: this.$route.params.cardCode,
       cards: {},
       card: { },
       cardCode: '',
@@ -59,20 +60,20 @@ export default {
   // }
 
 
-  async asyncData({}) {
-    //console.log('Start!!!!!!!!!!!!!!!!!!!!')
-   return axios.get('/set1-en_us.json').then(function(response) {
-     console.log(response.data[0],"yyoooooooo")
-     return {response}
+  // async asyncData({}) {
+  //   //console.log('Start!!!!!!!!!!!!!!!!!!!!')
+  //  return axios.get('/set1-en_us.json').then(function(response) {
+  //    console.log(response.data[0],"yyoooooooo")
+  //    return {response}
      
-   })
+  //  })
    
-    //console.log( response )
-    return  { cards: response }
-  },
+  //   //console.log( response )
+  //   return  { cards: response }
+  // },
   methods: {
     cardClick(cardCode) {
-      console.log(this,'state')
+      console.log(this.$store.state,'state')
       this.$router.push(`card/${cardCode}`)
     }
   }

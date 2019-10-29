@@ -22,7 +22,7 @@ export default {
     // }
     computed: {
         card () {
-            console.log(this.$route)
+            console.log('statessss')
         }
     }
 }
