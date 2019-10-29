@@ -1,18 +1,20 @@
-<template>
+<template >
     <div class="card-container">
         <div>
-            <h1>{{ card.name }}</h1>
-                <div class="card-image">
-
-                 <img :src="'/cards/'+card.cardCode+'.png'" >
+            <h1 class='container'>{{ card.name }}</h1>
+            <div class="card-image">
+            <b-alert show>
+        Hello Bootstrap!
+    </b-alert>
+            <img :src="'/cards/'+card.cardCode+'.png'" >
                 
-                </div>
-                <div class="card-image">
+            </div>
+            <div class="card-image-fullq">
 
-                 <img :src="'/cards/'+card.cardCode+'-full.png'" >
+            <img :src="'/cards/'+card.cardCode+'-full.png'" >
                 
-                </div>
-                <div >
+            </div>
+            <div >
                     <div>cardCode: {{ card.cardCode }}</div>
                     <div>cost: {{ card.cost }}</div>
                     <div>type: {{ card.type }}</div>
@@ -21,8 +23,8 @@
                     <div v-if="card.health">health: {{ card.health }}</div>
                     <div v-if="card.description">description: {{ card.descriptionRaw }} </div>
                     <div>rarity: {{ card.rarity }}</div>
-              </div>
             </div>
+        </div>
     </div>
 </template>
 
@@ -50,7 +52,12 @@ export default {
 </script>
 
 
+<style lang = "scss">
+.container{
+    
+}
+.card-container {
 
-<style lang="stylus" scoped>
+}
 
 </style>

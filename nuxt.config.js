@@ -23,6 +23,7 @@ module.exports = {
   ** Global CSS
   */
   css: [
+    '@/assets/scss/main.scss'
   ],
   /*
   ** Plugins to load before mounting the App
@@ -42,6 +43,8 @@ module.exports = {
     
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
+    '@nuxtjs/style-resources'
+    
    
   ],
   /*
@@ -50,6 +53,11 @@ module.exports = {
   */
   axios: {
    
+  },
+  styleResources: {
+    scss: [
+      'assets/scss/_variables.scss'
+    ]
   },
   /*
   ** Build configuration
@@ -64,6 +72,14 @@ module.exports = {
       plugins: ['@babel/plugin-syntax-jsx']
     },
     extend (config, ctx) {
+    },
+    extractCss: true,
+    postcss: {
+      preset: {
+        features: {
+          customProperties: false
+        }
+      }
     }
     
   }

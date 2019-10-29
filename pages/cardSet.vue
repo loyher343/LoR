@@ -10,17 +10,6 @@
                  <img @click.prevent="cardClick(card.cardCode)"  :src="'/cards/'+card.cardCode+'.png'" >
                 
               </div>
-              <div >
-                <div>name: {{ card.name }}</div>
-                <div>cardCode: {{ card.cardCode }}</div>
-                <div>cost: {{ card.cost }}</div>
-                <div>type: {{ card.type }}</div>
-                <div>region: {{ card.region }}</div>
-                <div v-if="card.flavorText">flavorText: {{ card.flavorText }}</div>
-                <div v-if="card.health">health: {{ card.health }}</div>
-                <div v-if="card.description">description: {{ card.descriptionRaw }} </div>
-                <div>rarity: {{ card.rarity }}</div>
-              </div>
             </div>
           </div>
         </div>
