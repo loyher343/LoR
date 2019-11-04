@@ -1,11 +1,10 @@
 <template >
     <div class="card-container">
         <div>
+            
             <h1 class='container'>{{ card.name }}</h1>
             <div class="card-image">
-            <b-alert show>
-        Hello Bootstrap!
-    </b-alert>
+            
             <img :src="'/cards/'+card.cardCode+'.png'" >
                 
             </div>
@@ -25,6 +24,10 @@
                     <div>rarity: {{ card.rarity }}</div>
             </div>
         </div>
+        {{assCards}}{{otherCardsData}}
+            {{log}}
+
+            
     </div>
 </template>
 
@@ -36,16 +39,29 @@ export default {
         console.log(this.$route.params.cardCode)
         return {
             cards: this.$store.state.cards,
-            cardCode: this.$route.params.cardCode
+            cardCode: this.$route.params.cardCode,
+            associatedCardRefs: []
         }
     },
      middleware: 'cardData',
    
     computed: {
         card () {
-            console.log('yo',this)
-            return this.cards.find(({cardCode}) => cardCode === this.cardCode )
+            console.log(this.cards.find(({cardCode}) => cardCode === this.cardCode ))
+            return this.cards.find(({cardCode}) => cardCode === this.cardCode)
             
+        },
+        assCards () {
+              this.associatedCardRefs = this.card.associatedCardRefs
+        },
+        otherCardsData () {
+           return this.associatedCardRefs.forEach((card) => {
+    
+               this.cards.find(({cardCode}) => cardCode === card)
+           })
+        },
+        log () {
+            console.log(this.associatedCardRefs)
         }
     }
 }
